@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="MyCSS.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script language="JavaScript" src="chatwork.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1>
+            Чат
+        </h1>
+        <div class="row" style="height: 75%; margin-bottom: 10px">
+            <div class="col-xs-12" style="height: 100%">
+                <textarea readonly class="chat_messages_list" style="height: 100%; width: 100%;">
+                </textarea>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-xs-10">
+                    <input type="text" class="form-control chat_new_messages" id="sendform" name="mynew" style="width: 100%;">
+                </div>
+                <div class="col-xs-2">
+                    <button type="button" class="btn btn-default chat_submit_massage" type="submit" >
+                        Отправить
+                    </button>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
