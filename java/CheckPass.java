@@ -19,7 +19,6 @@ public class CheckPass {
                     .and(DSL.field("password").eq(pass))
                     .fetch();
             if (result.isNotEmpty()){
-                System.out.println("we did it");
                 return true;
             }
         } catch (ClassNotFoundException e) {
