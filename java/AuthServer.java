@@ -8,10 +8,10 @@ import java.util.UUID;
 public class AuthServer extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp){
         resp.setStatus(200);
-        //String testAttr = (String) req.getSession().getAttribute("login");
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        resp.setStatus(200);
         String log = req.getParameter("login");
         String pass = req.getParameter("pass");
         if (new CheckPass().valiuableData(log, pass)) {
