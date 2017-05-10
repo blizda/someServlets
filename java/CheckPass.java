@@ -22,11 +22,6 @@ public class CheckPass {
                 System.out.println("we did it");
                 return true;
             }
-            /*for (Record2<Object, Object> entry : result){
-                if (entry.value1().equals(login) && entry.value2().equals(pass)){
-                    return true;
-                }
-            }*/
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
