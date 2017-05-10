@@ -11,10 +11,10 @@ public class AuthServer extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        resp.setStatus(200);
         String log = req.getParameter("login");
         String pass = req.getParameter("pass");
         if (new CheckPass().valiuableData(log, pass)) {
+            resp.setStatus(200);
             try {
                 UUID uuid = UUID.randomUUID();
                 new SetUUID().set(uuid, log);
@@ -22,6 +22,9 @@ public class AuthServer extends HttpServlet {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        else {
+            resp.setStatus(401);
         }
     }
 }

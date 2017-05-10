@@ -18,9 +18,9 @@ public class Chat extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.setStatus(200);
         UUID uuid = UUID.fromString(req.getParameter("uuid"));
         if (new CheckUUID().isSession(uuid)){
+            resp.setStatus(200);
             if (req.getParameter("case").equals("getMassages")){
                 resp.setHeader("text/html", "application/json;charset=UTF-8");
                 ReadFromDbAndMakeJSON fromDbAndMakeJSON = new ReadFromDbAndMakeJSON();
@@ -33,6 +33,9 @@ public class Chat extends HttpServlet {
                 ReadFromDbAndMakeJSON fromDbAndMakeJSON = new ReadFromDbAndMakeJSON();
                 fromDbAndMakeJSON.sendJSON(resp);
             }
+        }
+        else{
+            resp.setStatus(401);
         }
     }
 }
