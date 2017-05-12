@@ -1,15 +1,17 @@
+var currentMessagesList = "";
+
 function sendMessage() {
     $.post(
         "/chat",
-        {uuid: $.cookie('uuid'), case: "setMassage", message: $(".chat_new_messages").val()},
+        {uuid: $.cookie('uuid'), case: "setMassage", message: $(".chat_new_messages").val(), mydate: new Date()},
         function (callback) {
-            var massagesList = "";
             var obj = $.parseJSON(callback);
             var massageHistory = obj.massagesarray;
             massageHistory.forEach(function (massage) {
-                massagesList += massage.login + ": " + massage.message + "\n";
+                currentMessagesList += "[" + massage.data + "] " + massage.login
+                    + ": " + massage.message + "\n";
             });
-            $(".chat_messages_list").val(massagesList);
+            $(".chat_messages_list").val(currentMessagesList);
         }
     );
 }
@@ -19,22 +21,22 @@ $(document).ready(function () {
             sendMessage();
             $(".chat_new_messages").val('');
         });
-        getMassages();
-        setInterval(getMassages(), 5000);
+        getMassages(new Date(0));
+        setInterval(getMassages(new Date(), currentMessagesList), 7000);
 });
 
-function getMassages() {
+function getMassages(time) {
     $.post(
         "/chat",
-        {uuid: $.cookie('uuid'), case: "getMassages"},
+        {uuid: $.cookie('uuid'), case: "getMassages", mydate: time},
         function(callback){
-            var massagesList= "";
             var obj = $.parseJSON(callback);
             var massageHistory = obj.massagesarray;
             massageHistory.forEach(function (massage) {
-                massagesList += massage.login + ": " + massage.message + "\n";
+                currentMessagesList += "[" + massage.data + "] " + massage.login
+                    + ": " + massage.message + "\n";
             });
-            $(".chat_messages_list").val(massagesList);
+            $(".chat_messages_list").val(currentMessagesList);
         }
     );
 }
