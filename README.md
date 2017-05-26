@@ -1,1 +1,1 @@
-Simple chat. Front-end jquery + bootstrap, back-end javaEE. For keeping message history is used postgresql.
+Simple chat. Front-end jquery + bootstrap, back-end javaEE. For keeping message history are used postgresql.
